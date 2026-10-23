@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FútbolFlow - Deportes en Vivo</title>
+
+  <!-- Estilos CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- BARRA DE NAVEGACIÓN SUPERIOR -->
+  <header class="navbar">
+    <div class="nav-left">
+      <div class="logo">
+        <i class="fa-solid fa-futbol"></i> FÚTBOL<span>FLOW</span>
+      </div>
+      <nav class="nav-links">
+        <a href="#" class="active"><i class="fa-solid fa-tv"></i> En Vivo</a>
+        <a href="#"><i class="fa-solid fa-trophy"></i> Torneos</a>
+        <a href="#"><i class="fa-solid fa-calendar-days"></i> Agenda</a>
+        <a href="#"><i class="fa-solid fa-circle-play"></i> Resúmenes</a>
+      </nav>
+    </div>
+
+    <div class="nav-right">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+        <input type="text" id="searchInput" placeholder="Buscar partido, equipo o torneo...">
+      </div>
+      <div class="user-profile">
+        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=100" alt="Usuario">
+        <span>Mi Cuenta</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- REPRODUCTOR EN VIVO DESTACADO (HERO) -->
+  <section class="hero-player">
+    <div class="video-container">
+      <img class="video-poster" src="https://images.unsplash.com/photo-1508098682722-e99c43a406b2?auto=format&fit=crop&q=80&w=1600" alt="Superclásico En Vivo">
+      <div class="video-overlay"></div>
+
+      <!-- Badge de Estado En Vivo -->
+      <div class="live-tag">
+        <span class="live-dot"></span> EN VIVO EN DIRECTO
+      </div>
+
+      <!-- Información del Partido -->
+      <div class="match-info">
+        <div class="tournament-name">Liga Profesional - Fecha 15</div>
+        <div class="scoreboard">
+          <div class="team">
+            <span class="team-name">Boca Juniors</span>
+          </div>
+          <div class="score">2 - 1</div>
+          <div class="team">
+            <span class="team-name">River Plate</span>
+          </div>
+        </div>
+        <div class="match-time"> SEGUNDO TIEMPO • 78'</div>
+
+        <!-- Botones de Acción -->
+        <div class="player-controls">
+          <button class="btn btn-primary" onclick="togglePlay()"><i class="fa-solid fa-play" id="playIcon"></i> Reanudar</button>
+          <button class="btn btn-secondary" onclick="openStatsModal('Boca Juniors', 'River Plate', '2 - 1', '78\'')"><i class="fa-solid fa-chart-column"></i> Estadísticas</button>
+          <button class="btn btn-icon"><i class="fa-solid fa-volume-high"></i></button>
+          <button class="btn btn-icon"><i class="fa-solid fa-expand"></i></button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIONES DE CONTENIDO DEPORTIVO -->
+  <main class="content-wrapper">
+
+    <!-- Fila 1: Partidos en Vivo -->
+    <section class="section-row">
+      <div class="row-header">
+        <h2><i class="fa-solid fa-tower-broadcast"></i> Transmisiones En Vivo Ahora</h2>
+        <a href="#" class="view-all">Ver todos (12)</a>
+      </div>
+
+      <div class="cards-grid" id="liveGrid">
+        <!-- Tarjeta 1 -->
+        <div class="match-card" onclick="openStatsModal('Real Madrid', 'Man City', '1 - 1', '35\'')">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1522778119026-d647f0596c20?auto=format&fit=crop&q=80&w=600" alt="UEFA Champions League">
+            <span class="card-badge live">35' 1T</span>
+          </div>
+          <div class="card-details">
+            <span class="league">UEFA Champions League</span>
+            <div class="card-teams">
+              <span>Real Madrid</span>
+              <span class="card-score">1 - 1</span>
+              <span>Manchester City</span>
+            </div>
+            <div class="card-footer-info"><i class="fa-solid fa-tv"></i> ESPN Premium</div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 2 -->
+        <div class="match-card" onclick="openStatsModal('Barcelona', 'Bayern', '0 - 2', '60\'')">
+          <div class="card-thumb">
+            <img src="https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&q=80&w=600" alt="UEFA Champions League">
+            <span class="card-badge live">60' 2T</span>
+          </div>
+          <div class="card-details">
+            <span class="league">UEFA Champions League</span>
+            <div class="card-teams">
+              <span>FC Barcelona</span>
+              <span class="card-score">0 - 2</span>
+              <span>Bayern München</span>
+            </div>
+            <div class="card-footer-info"><i class="fa-solid fa-tv"></i> Fox Sports 1</div>
+          </div>
+        </div>
+
+        <!-- Tarjeta 3 -->
+        <div class="match-card" onclick="openStatsModal('Flamengo', 'Palmeiras', '3 - 2', '88\'')">
+          <div class="card-thumb">
+            <img src="
